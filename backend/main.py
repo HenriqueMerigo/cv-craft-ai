@@ -8,8 +8,8 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional
 
-from backend.ai_service import otimizar_curriculo
-from backend.pdf_generator import gerar_pdf
+from ai_service import otimizar_curriculo
+from pdf_generator import gerar_pdf
 
 app = FastAPI(title="CV Craft AI - API")
 
