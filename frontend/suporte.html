@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte & FAQ — CV Craft AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased h-full flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-md shadow-brand-500/20">
+                    <i class="fa-solid fa-file-contract text-white text-base"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight text-white">CV Craft <span class="text-brand-500">AI</span></span>
+            </a>
+            <a href="/" class="text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 border border-slate-800 px-3.5 py-2 rounded-xl transition-all flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao App
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="max-w-3xl mx-auto px-6 py-12 w-full flex-grow">
+        <h1 class="text-3xl font-extrabold text-white mb-2">Central de Suporte</h1>
+        <p class="text-xs text-slate-500 mb-8">Dúvidas frequentes e canal de contato com nossa equipe</p>
+
+        <!-- Card de Contato Direto -->
+        <div class="bg-gradient-to-r from-slate-900 to-slate-900/80 border border-brand-500/30 p-6 rounded-2xl mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+                <h2 class="text-base font-bold text-white mb-1">Precisa de ajuda direta?</h2>
+                <p class="text-xs text-slate-400">Entre em contato via e-mail e responderemos em até 24 horas úteis.</p>
+            </div>
+            <a href="mailto:suporte.cvcraft@gmail.com" class="inline-flex items-center gap-2 px-4 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs rounded-xl transition-all shadow-md">
+                <i class="fa-solid fa-envelope"></i> Enviar E-mail
+            </a>
+        </div>
+
+        <!-- FAQ -->
+        <h2 class="text-lg font-bold text-white mb-4">Perguntas Frequentes (FAQ)</h2>
+        <div class="space-y-4">
+            <details class="group bg-slate-900/60 border border-slate-800 p-5 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-sm text-slate-200">
+                    <span>O que é um sistema ATS?</span>
+                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs text-brand-400"></i></span>
+                </summary>
+                <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                    ATS (Applicant Tracking System) são robôs de triagem usados por recrutadores para filtrar milhares de currículos automaticamente por palavras-chave. Nossos modelos de PDF garantem leitura 100% perfeita por esses sistemas.
+                </p>
+            </details>
+
+            <details class="group bg-slate-900/60 border border-slate-800 p-5 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-sm text-slate-200">
+                    <span>Como funciona o download em pacote duplo (.ZIP)?</span>
+                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs text-brand-400"></i></span>
+                </summary>
+                <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                    Ao marcar a opção "Exportar versão adicional em Inglês", nossa IA reescreve seu currículo adaptando os termos técnicos para o mercado internacional e disponibiliza um arquivo .ZIP contendo os 2 PDFs prontos.
+                </p>
+            </details>
+
+            <details class="group bg-slate-900/60 border border-slate-800 p-5 rounded-2xl [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                <summary class="flex items-center justify-between font-semibold text-sm text-slate-200">
+                    <span>Meus dados ficam salvos na plataforma?</span>
+                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs text-brand-400"></i></span>
+                </summary>
+                <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                    Não mantemos seus arquivos salvos em servidor de forma permanente. O arquivo é gerado no momento da solicitação e enviado diretamente para o seu navegador.
+                </p>
+            </details>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-6 text-center text-xs text-slate-500">
+        &copy; 2026 CV Craft AI. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

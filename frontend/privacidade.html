@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade — CV Craft AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased h-full flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-md shadow-brand-500/20">
+                    <i class="fa-solid fa-file-contract text-white text-base"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight text-white">CV Craft <span class="text-brand-500">AI</span></span>
+            </a>
+            <a href="/" class="text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 border border-slate-800 px-3.5 py-2 rounded-xl transition-all flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao App
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="max-w-3xl mx-auto px-6 py-12 w-full flex-grow">
+        <h1 class="text-3xl font-extrabold text-white mb-2">Política de Privacidade</h1>
+        <p class="text-xs text-slate-500 mb-8">Última atualização: Outubro de 2026</p>
+
+        <div class="space-y-6 text-slate-300 text-sm leading-relaxed">
+            <section class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+                <h2 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield text-brand-400"></i> 1. Coleta e Uso de Dados
+                </h2>
+                <p>O <strong>CV Craft AI</strong> coleta apenas as informações fornecidas voluntariamente pelo usuário (nome, contato, histórico profissional e formação) para a finalidade exclusiva de processar e gerar o arquivo PDF otimizado para currículo.</p>
+            </section>
+
+            <section class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+                <h2 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-microchip text-brand-400"></i> 2. Processamento por Inteligência Artificial
+                </h2>
+                <p>Os dados inseridos no formulário são transmitidos via conexão criptografada HTTPS para os modelos de IA da Google (Gemini API) com a única finalidade de reestruturar, traduzir e formatar o conteúdo. Não utilizamos seus dados pessoais para treinamento de modelos públicos.</p>
+            </section>
+
+            <section class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+                <h2 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-database text-brand-400"></i> 3. Armazenamento e Retenção
+                </h2>
+                <p>Comprometemo-nos com o princípio da minimização de dados. O processamento dos PDFs é realizado em memória temporária (*in-memory*) e o arquivo gerado é entregue diretamente como download. Não mantemos banco de dados permanente com seus arquivos de currículo gerados.</p>
+            </section>
+
+            <section class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+                <h2 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-brand-400"></i> 4. Direitos do Titular (LGPD)
+                </h2>
+                <p>Em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018), o usuário possui o direito de solicitar esclarecimentos sobre o tratamento de seus dados a qualquer momento através do nosso canal de suporte.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-6 text-center text-xs text-slate-500">
+        &copy; 2026 CV Craft AI. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

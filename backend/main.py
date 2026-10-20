@@ -4,7 +4,6 @@ import zipfile
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
-from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional
 
@@ -21,14 +20,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Servir a rota principal com o index.html do frontend
-@app.get("/", response_class=FileResponse)
-async def serve_frontend():
-    frontend_path = os.path.join(os.path.dirname(__file__), "..", "frontend", "index.html")
-    if os.path.exists(frontend_path):
-        return FileResponse(frontend_path)
-    return {"status": "ok", "message": "API CV Craft AI está online!"}
-
 
 class CurriculoSchema(BaseModel):
     nome: str
@@ -41,6 +32,33 @@ class CurriculoSchema(BaseModel):
     habilidades_brutas: Optional[str] = ""
     descricao_vaga: Optional[str] = ""
     gerar_ingles: Optional[bool] = False
+
+
+# Rotas das Páginas Estáticas
+@app.get("/", response_class=FileResponse)
+async def serve_frontend():
+    frontend_path = os.path.join(os.path.dirname(__file__), "..", "frontend", "index.html")
+    if os.path.exists(frontend_path):
+        return FileResponse(frontend_path)
+    return {"status": "ok", "message": "API CV Craft AI está online!"}
+
+
+@app.get("/privacidade", response_class=FileResponse)
+async def serve_privacidade():
+    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "privacidade.html")
+    return FileResponse(path)
+
+
+@app.get("/termos", response_class=FileResponse)
+async def serve_termos():
+    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "termos.html")
+    return FileResponse(path)
+
+
+@app.get("/suporte", response_class=FileResponse)
+async def serve_suporte():
+    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "suporte.html")
+    return FileResponse(path)
 
 
 @app.post("/api/gerar-curriculo")
@@ -58,7 +76,6 @@ async def endpoint_gerar_curriculo(payload: CurriculoSchema):
         dados_pt = otimizar_curriculo(dados_input, idioma="pt")
         pdf_pt = gerar_pdf(dados_pessoais=dados_input, dados_ia=dados_pt, idioma="pt")
 
-        # Se não pediu em inglês, retorna apenas o PDF em PT
         if not payload.gerar_ingles:
             return StreamingResponse(
                 io.BytesIO(pdf_pt),
@@ -66,7 +83,7 @@ async def endpoint_gerar_curriculo(payload: CurriculoSchema):
                 headers={"Content-Disposition": f"attachment; filename=curriculo_{nome_slug}_pt.pdf"},
             )
 
-        # 2. Se pediu em inglês, gera a versão EN e empacota em um arquivo .ZIP
+        # 2. Se pediu em inglês, gera versão EN e empacota em ZIP
         dados_en = otimizar_curriculo(dados_input, idioma="en")
         pdf_en = gerar_pdf(dados_pessoais=dados_input, dados_ia=dados_en, idioma="en")
 
