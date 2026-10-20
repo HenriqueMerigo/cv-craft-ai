@@ -245,7 +245,7 @@
                 <!-- QR Code do PIX -->
                 <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center">
                     <div class="bg-white p-3 rounded-2xl shadow-md mb-2">
-                        <img id="qrcode-pix" src="" alt="QR Code PIX" class="w-40 h-40 object-contain">
+                        <img src="/qrcode_pix.jpeg" alt="QR Code PIX" class="w-44 h-44 object-contain">
                     </div>
                     <span class="text-[10px] text-slate-500 font-medium">Aponte a câmera do seu celular</span>
                 </div>
@@ -293,9 +293,6 @@
 
         function abrirModalDoacao() {
             const chavePix = document.getElementById('chave-pix').innerText.trim();
-            // Gera a imagem do QR Code dinamicamente com base na chave PIX
-            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(chavePix)}&color=000000&bgcolor=ffffff`;
-            document.getElementById('qrcode-pix').src = qrUrl;
 
             document.getElementById('modal-doacao').classList.remove('hidden');
         }

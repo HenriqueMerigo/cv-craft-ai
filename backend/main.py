@@ -43,6 +43,14 @@ async def serve_frontend():
     return {"status": "ok", "message": "API CV Craft AI está online!"}
 
 
+@app.get("/qrcode_pix.jpeg", response_class=FileResponse)
+async def serve_qrcode_pix():
+    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "qrcode.jpeg")
+    if os.path.exists(path):
+        return FileResponse(path)
+    raise HTTPException(status_code=404, detail="Imagem do QR Code não encontrada.")
+
+
 @app.get("/privacidade", response_class=FileResponse)
 async def serve_privacidade():
     path = os.path.join(os.path.dirname(__file__), "..", "frontend", "privacidade.html")
