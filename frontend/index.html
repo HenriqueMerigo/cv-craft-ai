@@ -226,36 +226,44 @@
         </div>
     </main>
 
-    <!-- Modal de Doação / Apoio via PIX -->
+    <!-- Modal de Doação / Apoio via PIX com QR Code -->
     <div id="modal-doacao" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full relative shadow-2xl">
             <button onclick="fecharModalDoacao()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-sm cursor-pointer">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <div class="text-center mb-6">
+            <div class="text-center mb-5">
                 <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 text-xl mx-auto mb-3">
                     <i class="fa-solid fa-heart"></i>
                 </div>
                 <h3 class="text-lg font-bold text-white">Apoie o Desenvolvedor</h3>
-                <p class="text-xs text-slate-400 mt-1">Sua contribuição ajuda a cobrir os custos de servidor e manter o CV Craft AI no ar.</p>
+                <p class="text-xs text-slate-400 mt-1">Escaneie o QR Code no app do seu banco ou copie a chave PIX abaixo.</p>
             </div>
 
             <div class="space-y-4">
-                <!-- Informações do PIX -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 text-center">
-                    <span class="text-[11px] text-slate-400 block mb-2 font-medium uppercase tracking-wider">Chave PIX</span>
-                    <div class="flex items-center justify-between gap-2 bg-slate-900 border border-slate-800 rounded-xl p-3">
+                <!-- QR Code do PIX -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center">
+                    <div class="bg-white p-3 rounded-2xl shadow-md mb-2">
+                        <img id="qrcode-pix" src="" alt="QR Code PIX" class="w-40 h-40 object-contain">
+                    </div>
+                    <span class="text-[10px] text-slate-500 font-medium">Aponte a câmera do seu celular</span>
+                </div>
+
+                <!-- Chave PIX e Botão Copiar -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 text-center">
+                    <span class="text-[10px] text-slate-400 block mb-1.5 font-medium uppercase tracking-wider">Chave PIX Copia e Cola</span>
+                    <div class="flex items-center justify-between gap-2 bg-slate-900 border border-slate-800 rounded-xl p-2.5">
                         <span id="chave-pix" class="text-xs font-mono text-emerald-400 font-semibold select-all truncate">7d5778c4-a771-4faf-8d29-5b44501938e5</span>
-                        <button onclick="copiarPix()" class="text-slate-300 hover:text-white text-xs px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer flex-shrink-0">
+                        <button onclick="copiarPix()" class="text-slate-200 hover:text-white text-xs px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer flex-shrink-0 font-medium">
                             <i class="fa-regular fa-copy"></i> Copiar
                         </button>
                     </div>
-                    <span id="feedback-copiado" class="text-[11px] text-emerald-400 font-semibold mt-2 hidden block">✓ Chave PIX copiada com sucesso!</span>
+                    <span id="feedback-copiado" class="text-[11px] text-emerald-400 font-semibold mt-2 hidden block">✓ Chave PIX copiada para a área de transferência!</span>
                 </div>
             </div>
             
-            <button onclick="fecharModalDoacao()" class="w-full mt-5 py-2.5 text-xs text-slate-400 hover:text-white transition-colors cursor-pointer">
+            <button onclick="fecharModalDoacao()" class="w-full mt-4 py-2 text-xs text-slate-400 hover:text-white transition-colors cursor-pointer">
                 Fechar
             </button>
         </div>
@@ -284,6 +292,11 @@
         const API_URL = '/api/gerar-curriculo';
 
         function abrirModalDoacao() {
+            const chavePix = document.getElementById('chave-pix').innerText.trim();
+            // Gera a imagem do QR Code dinamicamente com base na chave PIX
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(chavePix)}&color=000000&bgcolor=ffffff`;
+            document.getElementById('qrcode-pix').src = qrUrl;
+
             document.getElementById('modal-doacao').classList.remove('hidden');
         }
 
